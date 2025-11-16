@@ -1,18 +1,18 @@
 import Navbar from "../components/Navbar";
-import Form from "../components/Form";
+import Update_Form from "../components/Update_Form";
 
-function AddStudent() {
+function UpdateStudent() {
     
   return (
     <>
-      <Navbar />
+        <Navbar />
 
       <div className="container mt-4">
-        <h2>Add Student</h2>
+        <h2>Update Student</h2>
 
         <div className="row">
           <div className="col-md-12">
-            <Form />  
+            <Update_Form/>  
           </div>
         </div>
       </div>
@@ -20,4 +20,4 @@ function AddStudent() {
   );
 }
 
-export default AddStudent;
+export default UpdateStudent;

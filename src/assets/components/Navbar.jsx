@@ -10,15 +10,15 @@ function Navbar() {
                             <use xlinkHref="#bootstrap">
                             </use>
                         </svg>
-                        <span className="fs-4">Simple header</span>
+                        <span className="fs-4">Student Management System</span>
                     </a>
                     <ul className="nav nav-pills">
                        
                         <li className="nav-item">
-                        <Link to="/add"className="nav-link active" aria-current="page">Add New Student</Link>
+                        <Link to=""className="nav-link active" aria-current="page">Add New Student</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/Update" className="nav-link">Update Students</Link>
+                            <Link to="/update" className="nav-link">Update Students</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/view" className="nav-link">View Students</Link>
