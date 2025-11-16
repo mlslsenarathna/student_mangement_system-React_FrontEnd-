@@ -2,62 +2,99 @@ import { useState } from "react";
 import axios from "axios";
 
 function Update_Form() {
-  // State for student ID input
-  const [studentId, setStudentId] = useState("");
 
-  // State for student object
+  const [studentId, setStudentId] = useState("");
   const [student, setStudent] = useState({
+    studentId:"",
     firstName: "",
     secondName: "",
     contactNo: "",
     gender: "",
     grade: "",
     address: "",
-    email: "",
+    email:"",
     dob: ""
   });
 
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setStudent({ ...student, [name]: value });
-  };
+  const handleSearch = () => {
+    console.log("Searching");
+  if (!studentId) return alert("Enter a student ID");
 
-  // Search student by ID
+  axios.get("http://localhost:8888/student/getById/" + studentId)
+    .then(res => {
+      console.log("Response:", res.data);
+
+      setStudent({
+        studentId: res.data.studentId,
+        firstName: res.data.firstName,
+        secondName: res.data.secondName,
+        contactNo: res.data.contactNo,
+        gender: res.data.gender,
+        grade: res.data.grade,
+        address: res.data.address,
+        email: res.data.email,
+        dob: res.data.dob
+      });
+
+      console.log("Updated State:", student);
+    })
+    .catch(err => console.error(err));
+};
+
+
+
+
   const searchStudent = () => {
     console.log("Searching");
     if (!studentId) return alert("Enter a student ID");
-    axios.get(`http://localhost:888//getById/{studentId}`)
-      .then(res => setStudent(res.data))
-      .catch(err => console.error(err));
+    axios.get('http://localhost:8888/student/getById/'+studentId)
+      .then(response => {
+
+    let studentObj = response.data;
+    console.log("Student Object:", studentObj);
+
+    document.getElementById("firstName").innerHTML = studentObj.firstName ;
+    document.getElementById("secondName").innerHTML = studentObj.secondName ;
+    document.getElementById("contactNo").innerHTML = studentObj.contactNo ;
+    document.getElementById("gender").innerHTML = studentObj.gender ;
+    document.getElementById("grade").innerHTML= studentObj.grade ;
+    document.getElementById("address").innerHTML = studentObj.address ;
+    document.getElementById("email").innerHTML = studentObj.email ;
+    document.getElementById("dob").innerHTML = studentObj.dob ;
+
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
   };
 
-  // Update student
+
   const updateStudent = (e) => {
     console.log("Updating");
-    e.preventDefault(); // prevent form reload
-    axios.put(`http://localhost:8888/student/updateStudent`, student)
+    e.preventDefault(); 
+    axios.put('http://localhost:8888/student/updateStudent', student)
       .then(res => console.log(res.data))
       .catch(err => console.error(err));
   };
 
   return (
     <div>
-      {/* Search input */}
+    
       <div className="form-inline mb-3">
         <input
           type="text"
+          id="studentId"
           className="form-control mr-2"
           placeholder="Enter Student ID"
           value={studentId}
           onChange={(e) => setStudentId(e.target.value)}
         />
-        <button type="button" className="btn btn-secondary" onClick={searchStudent}>
+        <button type="button" className="btn btn-secondary" onClick={handleSearch}>
           Search
         </button>
       </div>
 
-      {/* Update form */}
+      
       <form onSubmit={updateStudent}>
         <div className="form-row">
           <div className="form-group col-md-6">
@@ -68,7 +105,8 @@ function Update_Form() {
               id="firstName"
               name="firstName"
               value={student.firstName}
-              onChange={handleChange}
+              onChange={(e) => setStudent({...student, firstName: e.target.value})}
+           
             />
           </div>
 
@@ -80,7 +118,8 @@ function Update_Form() {
               id="secondName"
               name="secondName"
               value={student.secondName}
-              onChange={handleChange}
+              onChange={(e) => setStudent({...student, secondName: e.target.value})}
+            
             />
           </div>
         </div>
@@ -94,7 +133,7 @@ function Update_Form() {
               id="contactNo"
               name="contactNo"
               value={student.contactNo}
-              onChange={handleChange}
+              onChange={(e) => setStudent({...student, contactNo: e.target.value})}
             />
           </div>
 
@@ -105,8 +144,8 @@ function Update_Form() {
               id="gender"
               name="gender"
               value={student.gender}
-              onChange={handleChange}
-            >
+              onChange={(e) => setStudent({...student, gender: e.target.value})}
+              >
               <option value="">Choose...</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -121,7 +160,8 @@ function Update_Form() {
               id="grade"
               name="grade"
               value={student.grade}
-              onChange={handleChange}
+              onChange={(e) => setStudent({...student, grade: e.target.value})}
+             
             />
           </div>
         </div>
@@ -134,7 +174,8 @@ function Update_Form() {
             id="address"
             name="address"
             value={student.address}
-            onChange={handleChange}
+            onChange={(e) => setStudent({...student, address: e.target.value})}
+         
           />
         </div>
 
@@ -147,7 +188,8 @@ function Update_Form() {
               id="email"
               name="email"
               value={student.email}
-              onChange={handleChange}
+              onChange={(e) => setStudent({...student,email: e.target.value})}
+            
             />
           </div>
 
@@ -159,7 +201,8 @@ function Update_Form() {
               id="dob"
               name="dob"
               value={student.dob}
-              onChange={handleChange}
+               onChange={(e) => setStudent({...student,dob: e.target.value})}
+          
             />
           </div>
         </div>
