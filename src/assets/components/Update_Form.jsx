@@ -25,16 +25,18 @@ function Update_Form() {
 
   // Search student by ID
   const searchStudent = () => {
+    console.log("Searching");
     if (!studentId) return alert("Enter a student ID");
-    axios.get(`http://localhost:8080/student/${studentId}`)
+    axios.get(`http://localhost:888//getById/{studentId}`)
       .then(res => setStudent(res.data))
       .catch(err => console.error(err));
   };
 
   // Update student
   const updateStudent = (e) => {
+    console.log("Updating");
     e.preventDefault(); // prevent form reload
-    axios.put(`http://localhost:8080/student/update/${studentId}`, student)
+    axios.put(`http://localhost:8888/student/updateStudent`, student)
       .then(res => console.log(res.data))
       .catch(err => console.error(err));
   };

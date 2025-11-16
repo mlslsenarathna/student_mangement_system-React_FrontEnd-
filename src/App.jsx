@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 import AddStudent from './assets/pages/AddStudent.jsx'
 import UpdateStudent from './assets/pages/UpdateStudent.jsx'
+import DeleteStudent from './assets/pages/DeleteStudent.jsx'
+
+
+
+
 
 
 
@@ -15,7 +20,9 @@ function App() {
     <Router>
       <Routes>
         <Route path='' element={<AddStudent/>}></Route>
-        <Route path='update' element={<UpdateStudent/>}></Route>
+        <Route path='/add' element={<AddStudent/>}></Route>
+        <Route path='/update' element={<UpdateStudent/>}></Route>
+        <Route path='/delete' element={<DeleteStudent/>}></Route>
         
        
       </Routes>

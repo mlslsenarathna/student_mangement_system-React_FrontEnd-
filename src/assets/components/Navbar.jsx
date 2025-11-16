@@ -15,7 +15,7 @@ function Navbar() {
                     <ul className="nav nav-pills">
                        
                         <li className="nav-item">
-                        <Link to=""className="nav-link active" aria-current="page">Add New Student</Link>
+                        <Link to="add"className="nav-link active" aria-current="page">Add New Student</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/update" className="nav-link">Update Students</Link>
