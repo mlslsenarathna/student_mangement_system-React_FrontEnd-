@@ -44,34 +44,34 @@ function Delete_Form() {
 
 
 
-  const searchStudent = () => {
-    console.log("Searching");
-    if (!studentId) return alert("Enter a student ID");
-    axios.get('http://localhost:8888/student/getById/'+studentId)
-      .then(response => {
+  // const searchStudent = () => {
+  //   console.log("Searching");
+  //   if (!studentId) return alert("Enter a student ID");
+  //   axios.get('http://localhost:8888/student/getById/'+studentId)
+  //     .then(response => {
 
-    let studentObj = response.data;
-    console.log("Student Object:", studentObj);
+  //   let studentObj = response.data;
+  //   console.log("Student Object:", studentObj);
 
-    document.getElementById("firstName").innerHTML = studentObj.firstName ;
-    document.getElementById("secondName").innerHTML = studentObj.secondName ;
-    document.getElementById("contactNo").innerHTML = studentObj.contactNo ;
-    document.getElementById("gender").innerHTML = studentObj.gender ;
-    document.getElementById("grade").innerHTML= studentObj.grade ;
-    document.getElementById("address").innerHTML = studentObj.address ;
-    document.getElementById("email").innerHTML = studentObj.email ;
-    document.getElementById("dob").innerHTML = studentObj.dob ;
+  //   document.getElementById("firstName").innerHTML = studentObj.firstName ;
+  //   document.getElementById("secondName").innerHTML = studentObj.secondName ;
+  //   document.getElementById("contactNo").innerHTML = studentObj.contactNo ;
+  //   document.getElementById("gender").innerHTML = studentObj.gender ;
+  //   document.getElementById("grade").innerHTML= studentObj.grade ;
+  //   document.getElementById("address").innerHTML = studentObj.address ;
+  //   document.getElementById("email").innerHTML = studentObj.email ;
+  //   document.getElementById("dob").innerHTML = studentObj.dob ;
 
-  })
-  .catch(error => {
-    console.error("Error:", error);
-  });
-  };
+  // })
+  // .catch(error => {
+  //   console.error("Error:", error);
+  // });
+  // };
 
 
   const deleteStudent = (e) => {
     console.log("deleting");
-    e.preventDefault(); 
+     e.preventDefault(); 
     console.log("Deleting student with ID:", studentId);
     axios.delete('http://localhost:8888/student/deleteStudent/'+studentId)
       .then(res => console.log(res.data))
