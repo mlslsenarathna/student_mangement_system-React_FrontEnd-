@@ -89,7 +89,7 @@ function Update_Form() {
           value={studentId}
           onChange={(e) => setStudentId(e.target.value)}
         />
-        <button type="button" className="btn btn-secondary" onClick={handleSearch}>
+        <button type="button" className="btn btn-secondary m-2" onClick={handleSearch}>
           Search
         </button>
       </div>
@@ -207,7 +207,7 @@ function Update_Form() {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary w-25">
+        <button type="submit" className="btn btn-primary w-25 m-5 p-1 ">
           Update Student
         </button>
       </form>

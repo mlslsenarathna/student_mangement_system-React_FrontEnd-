@@ -107,7 +107,7 @@ function Form() {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary w-10" onClick={addData}>
+                <button type="submit" className="btn btn-primary w-10 m-5 p-2" onClick={addData}>
                     Add Student
                 </button>
             </form>

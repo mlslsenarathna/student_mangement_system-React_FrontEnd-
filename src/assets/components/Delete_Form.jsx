@@ -91,7 +91,7 @@ function Delete_Form() {
            onChange={(e) => setStudentId(e.target.value)}
          
         />
-        <button type="button" className="btn btn-secondary" onClick={handleSearch}>
+        <button type="button" className="btn btn-secondary m-2" onClick={handleSearch}>
           Search
         </button>
       </div>
@@ -208,9 +208,12 @@ function Delete_Form() {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary w-25">
-          Delete Student
-        </button>
+       < button 
+  type="submit" 
+  className="btn btn-primary w-25 mt-5 p-1 " 
+>
+    Delete Student
+</button>
       </form>
     </div>
   );
