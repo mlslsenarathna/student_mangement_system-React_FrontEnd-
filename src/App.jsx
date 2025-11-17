@@ -15,7 +15,7 @@ import VeiwStudents from './assets/pages/VeiwStudents.jsx'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (<>
     <Router>
